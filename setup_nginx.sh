@@ -29,9 +29,9 @@ FLUSH PRIVILEGES;
 exit;
 
 # Setting Folder Permissions
-sudo chgrp -R elvis . ;
-sudo chown -R elvis:www-data storage;
-sudo chown -R elvis:www-data bootstrap/cache;
+sudo chgrp -R www-data . ;
+sudo chown -R www-data:www-data storage;
+sudo chown -R www-data:www-data bootstrap/cache;
 chmod -R 775 ./storage;
 chmod -R 775 bootstrap/cache;
 
