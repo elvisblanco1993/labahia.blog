@@ -38,6 +38,7 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified'])->group(function
     Route::get('/articles/{article}/publish', [ArticleController::class, 'publish'])->name('articles.publish');
     Route::get('/articles/{article}/restore', [ArticleController::class, 'restore'])->name('articles.restore');
     Route::get('/articles/{article}/delete', [ArticleController::class, 'delete'])->name('articles.delete');
+    Route::get('/articles/{article}/delete-forever', [ArticleController::class, 'deleteForever'])->name('articles.delete-forever');
 
     Route::get('/users', App\Http\Livewire\Users\Index::class)->name('users');
 });

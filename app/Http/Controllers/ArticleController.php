@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -52,6 +53,21 @@ class ArticleController extends Controller
         $article = Article::withTrashed()->find($article);
         // Restore an Article
         $article->restore();
+
+        request()->session()->flash('flash.banner', 'Article successfully restored');
+        request()->session()->flash('flash.bannerStyle', 'success');
+        return redirect()->route('articles');
+    }
+
+    public function deleteForever($article)
+    {
+        $article = Article::withTrashed()->find($article);
+        // Detach tags
+        $article->tags()->detach();
+        // Delete statistics associated with the article
+        DB::table('article_reads')->where('article_id', $article->id)->delete();
+        // Delete Article Forever
+        $article->forceDelete();
 
         request()->session()->flash('flash.banner', 'Article successfully restored');
         request()->session()->flash('flash.bannerStyle', 'success');

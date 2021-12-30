@@ -84,6 +84,7 @@
                                             <a href="{{route('articles.edit', ['article' => $article->id])}}" class="text-indigo-600 hover:text-indigo-900">{{__("Edit")}}</a>
                                             @if ($article->trashed())
                                                 <a href="{{route('articles.restore', ['article' => $article->id])}}" class="text-green-600 hover:text-green-900">{{__("Restore")}}</a>
+                                                <a href="{{route('articles.delete-forever', ['article' => $article->id])}}" class="text-red-600 hover:text-red-900">{{__("Delete Forever")}}</a>
                                             @else
                                                 <a href="{{route('articles.delete', ['article' => $article->id])}}" class="text-red-600 hover:text-red-900">{{__("Delete")}}</a>
                                             @endif
