@@ -36,6 +36,7 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified'])->group(function
     Route::get('/articles/create', App\Http\Livewire\Articles\Create::class)->name('articles.create');
     Route::get('/articles/{article}/edit', App\Http\Livewire\Articles\Edit::class)->name('articles.edit');
     Route::get('/articles/{article}/publish', [ArticleController::class, 'publish'])->name('articles.publish');
+    Route::get('/articles/{article}/restore', [ArticleController::class, 'restore'])->name('articles.restore');
     Route::get('/articles/{article}/delete', [ArticleController::class, 'delete'])->name('articles.delete');
 
     Route::get('/users', App\Http\Livewire\Users\Index::class)->name('users');

@@ -22,9 +22,9 @@ class Index extends Component
         return view('livewire.articles.index', [
             'articles' => ($this->response->allowed())
                             ?
-                            Article::where('title', 'like', '%' . $this->query . '%')->paginate(50)
+                            Article::withTrashed()->where('title', 'like', '%' . $this->query . '%')->paginate(50)
                             :
-                            auth()->user()->articles()->where('title', 'like', '%' . $this->query . '%')->paginate(50)
+                            auth()->user()->articles()->withTrashed()->where('title', 'like', '%' . $this->query . '%')->paginate(50)
         ]);
     }
 }

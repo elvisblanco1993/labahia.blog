@@ -37,10 +37,23 @@ class ArticleController extends Controller
 
     public function delete(Article $article)
     {
+        $article->published_at = null;
+        $article->update();
         // Soft Deletes an Article
         $article->delete();
 
         request()->session()->flash('flash.banner', 'Article successfully deleted');
+        request()->session()->flash('flash.bannerStyle', 'success');
+        return redirect()->route('articles');
+    }
+
+    public function restore($article)
+    {
+        $article = Article::withTrashed()->find($article);
+        // Restore an Article
+        $article->restore();
+
+        request()->session()->flash('flash.banner', 'Article successfully restored');
         request()->session()->flash('flash.bannerStyle', 'success');
         return redirect()->route('articles');
     }

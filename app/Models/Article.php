@@ -56,8 +56,6 @@ class Article extends Model
             $this->region = $this->position->cityName . ', ' . $this->position->countryName;
         }
 
-        Log::error($this->position->cityName);
-
         /**
          * Search for any previous sessions. If the same person visited the same post multiple
          * times, from the same computer, a new visit will only be registered after 30 minutes

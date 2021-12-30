@@ -12,7 +12,7 @@
                         <div class="hidden sm:block col-span-6 w-full">
                             <div class="grid grid-cols-4 h-96">
                                 <div class="col-span-2 h-full w-full">
-                                    <img src="{{asset('images/'.$article->image)}}" alt="{{$article->title}}" class="w-full h-full object-cover object-center">
+                                    <img src="{{asset('images/'.$article->image)}}" alt="{{$article->title}}" class="w-full h-96 object-cover object-center">
                                 </div>
                                 <div class="col-span-2 w-full h-full flex flex-col items-center justify-center bg-black text-white text-center p-6">
                                     <h1 class="text-2xl md:text-4xl font-semibold dark:text-gray-400 transition-all">{{$article->title}}</h1>
