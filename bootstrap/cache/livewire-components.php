@@ -1,0 +1,16 @@
+<?php return array (
+  'articles.create' => 'App\\Http\\Livewire\\Articles\\Create',
+  'articles.edit' => 'App\\Http\\Livewire\\Articles\\Edit',
+  'articles.index' => 'App\\Http\\Livewire\\Articles\\Index',
+  'banner' => 'App\\Http\\Livewire\\Banner',
+  'dashboard.admin' => 'App\\Http\\Livewire\\Dashboard\\Admin',
+  'dashboard.writer' => 'App\\Http\\Livewire\\Dashboard\\Writer',
+  'tags.create' => 'App\\Http\\Livewire\\Tags\\Create',
+  'tips.index' => 'App\\Http\\Livewire\\Tips\\Index',
+  'trix' => 'App\\Http\\Livewire\\Trix',
+  'users.delete' => 'App\\Http\\Livewire\\Users\\Delete',
+  'users.index' => 'App\\Http\\Livewire\\Users\\Index',
+  'users.invite' => 'App\\Http\\Livewire\\Users\\Invite',
+  'users.restore' => 'App\\Http\\Livewire\\Users\\Restore',
+  'users.trash' => 'App\\Http\\Livewire\\Users\\Trash',
+);

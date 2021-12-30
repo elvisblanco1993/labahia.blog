@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100"
+   height="100"
+   viewBox="0 0 26.458333 26.458334"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="100px"
+     inkscape:zoom="1.4948513"
+     inkscape:cx="158.20972"
+     inkscape:cy="141.15116"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#fbbf24;fill-rule:evenodd;stroke-width:0.259138;fill-opacity:1"
+       id="rect31"
+       width="25.929167"
+       height="25.929167"
+       x="0.24199"
+       y="0.22732356"
+       ry="2.2790248" />
+    <path
+       fillRule="evenodd"
+       d="m 19.128242,6.0876342 a 0.91283494,0.91283494 0 0 0 -1.4334,-0.5966961 l -6.458651,4.6354049 -3.3916883,0.543748 a 2.7385052,2.7385052 0 0 0 0.8669905,5.407954 l 0.2523701,-0.04047 2.3644017,4.535541 a 0.91283494,0.91283494 0 0 0 0.954195,0.479375 l 0.901326,-0.144492 a 0.91283494,0.91283494 0 0 0 0.756827,-1.045822 l -0.633192,-3.949609 6.379764,2.005845 a 0.91283494,0.91283494 0 0 0 1.175037,-1.014874 z"
+       clipRule="evenodd"
+       id="path14807"
+       style="stroke-width:0.912834" />
+  </g>
+</svg>
