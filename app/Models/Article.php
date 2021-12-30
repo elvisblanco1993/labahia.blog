@@ -52,7 +52,7 @@ class Article extends Model
 
 
         if ($this->remote_ip != "127.0.0.1") {
-            $this->position == Location::get($this->remote_ip);
+            $this->position = Location::get($this->remote_ip);
             $this->region = $this->position->cityName . ', ' . $this->position->countryName;
         }
 
