@@ -7,7 +7,11 @@
             <span>&centerdot;</span>
             <a href="{{route('tips.create')}}" class="text-sm">{{__("Send News")}}</a>
             <span>&centerdot;</span>
-            <a href="{{ route('login') }}" class="text-sm">{{__("Log in")}}</a>
+            @auth
+                <a href="{{ route('dashboard') }}" class="text-sm">{{__("Dashboard")}}</a>
+            @else
+                <a href="{{ route('login') }}" class="text-sm">{{__("Log in")}}</a>
+            @endauth
         </div>
     </div>
 </div>
