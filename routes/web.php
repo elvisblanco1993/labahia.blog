@@ -18,6 +18,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [ArticleController::class, 'public'])->name('home');
+Route::get('/team/about', function(){return view('web.about-us');})->name('about');
 Route::get('/{article}', [ArticleController::class, 'view'])->name('articles.view');
 
 Route::get('/tag/{tag}', [TagController::class, 'filter'])->name('tags.filter');
@@ -25,6 +26,7 @@ Route::get('/author/{user}', [UserController::class, 'filter'])->name('author.fi
 
 Route::get('/tips/submit', [TipController::class, 'create'])->name('tips.create');
 Route::post('/tips/submit', [TipController::class, 'store'])->name('tips.store');
+
 
 
 Route::prefix('admin')->middleware(['auth:sanctum', 'verified'])->group(function(){
