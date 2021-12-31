@@ -4,8 +4,8 @@
         <div class="text-center">
             <h2 class="text-4xl mb-4 font-black text-gray-900 dark:text-white">{{__("What is La Bahia?")}}</h2>
         </div>
-        <div class="mt-6 prose prose-indigo dark:text-gray-400 min-w-full article">
-            {{__("La Bahía is a community project initially developed by Elvis Blanco, with the purpose of recovering and publicly exposing the lost stories of our island. If you are interested in joining our community of writers, please contact us by writing to")}} <a href="mailto:hola@labahia.blog">hola@labahia.blog</a>
+        <div class="mt-6 prose-xl prose-indigo dark:text-gray-400 min-w-full article">
+            {{__("La Bahia is a community project focused on unearthing and preserving lost stories of the towns of Cuba. We also comment in current issues and take a stand against social injustice by the island's regime and its followers towards the ones who seek a better Cuba free from communism and misery.")}}
         </div>
     </div>
 </x-guest-layout>

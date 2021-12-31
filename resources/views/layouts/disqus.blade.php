@@ -19,4 +19,4 @@
     })();
 </script>
 <script id="dsq-count-scr" src="//labahia.disqus.com/count.js" async></script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Por favor habilite la ejecución de javascript para poder ver los <a href="https://disqus.com/?ref_noscript">comentarios por Disqus.</a></noscript>
