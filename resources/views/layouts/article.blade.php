@@ -11,7 +11,7 @@
             <meta property="og:type"         content="article" />
             <meta property="og:title"        content="{{ $article->title}}" />
             <meta property="og:description"  content="{{Str::limit(strip_tags($article->body), 50)}}" />
-            <meta property="og:image"        content="{{ url('/storage/photos/' . $article->image) }}" />
+            <meta property="og:image"        content="{{ asset('images/'.$article->image }}" />
         @endif
 
         <title>{{ config('app.name', 'Laravel') }}</title>
