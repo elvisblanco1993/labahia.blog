@@ -60,6 +60,7 @@ class Admin extends Component
     {
         return DB::table('article_reads')
                 ->select(DB::raw("COUNT(*) as total, DATE_FORMAT(created_at, '%m') as month, DATE_FORMAT(created_at, '%Y') as year, DATE_FORMAT(created_at, '%M') as month_label"))
+                ->whereYear('created_at', '=', Carbon::now()->format('Y'))
                 ->groupBy('month')
                 ->groupBy('year')
                 ->groupBy('month_label')
