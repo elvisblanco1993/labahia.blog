@@ -59,9 +59,11 @@ class Admin extends Component
     public function getMonthlyCount()
     {
         return DB::table('article_reads')
-                ->select(DB::raw("COUNT(*) as total, DATE_FORMAT(created_at, '%m') as month, DATE_FORMAT(created_at, '%M') as month_label"))
+                ->select(DB::raw("COUNT(*) as total, DATE_FORMAT(created_at, '%m') as month, DATE_FORMAT(created_at, '%Y') as year, DATE_FORMAT(created_at, '%M') as month_label"))
                 ->groupBy('month')
+                ->groupBy('year')
                 ->groupBy('month_label')
+                ->orderBy('year', 'asc')
                 ->orderBy('month', 'asc')
                 ->get()
                 ->toArray();

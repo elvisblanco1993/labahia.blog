@@ -45,27 +45,46 @@
                             height: 350
                         },
                         series: [{
-                            name: 'Overall Monthly Reads',
+                            name: '{{Carbon\Carbon::now()->format('Y')}}',
                             data: [
                                 @forelse ($monthlyCount as $click)
-                                    {
-                                        x: '{{$click->month_label}}',
-                                        y: '{{$click->total}}'
-                                    },
+                                    @if ($click->year == Carbon\Carbon::now()->format('Y'))
+                                        {
+                                            x: '{{$click->month_label . ' ' . $click->year}}',
+                                            y: '{{$click->total}}'
+                                        },
+                                    @endif
                                 @empty
 
                                 @endforelse
                             ],
-                        }],
-                        xaxis: {
-                            type: 'category'
                         },
-                        theme: {
-                            palette: 'palette1' // upto palette10
-                        }
+
+                        {
+                            name: '{{Carbon\Carbon::now()->subYear()->format('Y')}}',
+                            data: [
+                                @forelse ($monthlyCount as $click)
+                                    @if ($click->year == Carbon\Carbon::now()->subYear()->format('Y'))
+                                    {
+                                        x: '{{$click->month_label . ' ' . $click->year}}',
+                                        y: '{{$click->total}}'
+                                    },
+                                    @endif
+                                @empty
+
+                                @endforelse
+                            ],
+                        },
+                    ],
+                    xaxis: {
+                        type: 'category'
+                    },
+                    theme: {
+                        palette: 'palette1' // upto palette10
                     }
-                    var chart = new ApexCharts(document.querySelector("#chart"), options);
-                    chart.render();
+                }
+                var chart = new ApexCharts(document.querySelector("#chart"), options);
+                chart.render();
             </script>
         @endif
 
