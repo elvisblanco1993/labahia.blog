@@ -63,7 +63,19 @@ class Admin extends Component
                 ->groupBy('month')
                 ->groupBy('year')
                 ->groupBy('month_label')
-                ->orderBy('year', 'asc')
+                ->orderBy('month', 'asc')
+                ->get()
+                ->toArray();
+    }
+
+    public function getMonthlyCountPrevYear()
+    {
+        return DB::table('article_reads')
+                ->select(DB::raw("COUNT(*) as total, DATE_FORMAT(created_at, '%m') as month, DATE_FORMAT(created_at, '%Y') as year, DATE_FORMAT(created_at, '%M') as month_label"))
+                ->whereYear('created_at', '=', Carbon::now()->subYear()->format('Y'))
+                ->groupBy('month')
+                ->groupBy('year')
+                ->groupBy('month_label')
                 ->orderBy('month', 'asc')
                 ->get()
                 ->toArray();
@@ -96,6 +108,7 @@ class Admin extends Component
         $this->monthlyIncrease = $this->getMonthlyIncrease();
         $this->monthlyIncreasePercentage = $this->getMonthlyIncreasePercentage();
         $this->monthlyCount = $this->getMonthlyCount();
+        $this->monthlyCountPrevYear = $this->getMonthlyCountPrevYear();
         $this->mostPopularArticles = $this->getMostPopularArticles();
         $this->mostReadsByRegion = $this->getMostReadsByRegion();
 

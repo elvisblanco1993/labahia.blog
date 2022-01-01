@@ -32,6 +32,24 @@
             </div>
         </div>
 
+        {{-- <div class="mt-4">
+            <div class="grid grid-cols-12 gap-4">
+                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
+                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
+                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
+                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
+                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
+                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
+                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
+                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
+                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
+                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
+                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
+                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
+
+            </div>
+        </div> --}}
+
         @if (count($monthlyCount) > 0)
             <div class="mt-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
                 <div class="text-gray-500 dark:text-gray-300 text-xs">{{__("Overall Monthly Reads")}}</div>
@@ -48,12 +66,10 @@
                             name: '{{Carbon\Carbon::now()->format('Y')}}',
                             data: [
                                 @forelse ($monthlyCount as $click)
-                                    @if ($click->year == Carbon\Carbon::now()->format('Y'))
-                                        {
-                                            x: '{{$click->month_label . ' ' . $click->year}}',
-                                            y: '{{$click->total}}'
-                                        },
-                                    @endif
+                                {
+                                    x: '{{$click->month_label . ' ' . $click->year}}',
+                                    y: '{{$click->total}}'
+                                },
                                 @empty
 
                                 @endforelse
@@ -63,13 +79,11 @@
                         {
                             name: '{{Carbon\Carbon::now()->subYear()->format('Y')}}',
                             data: [
-                                @forelse ($monthlyCount as $click)
-                                    @if ($click->year == Carbon\Carbon::now()->subYear()->format('Y'))
-                                    {
-                                        x: '{{$click->month_label . ' ' . $click->year}}',
-                                        y: '{{$click->total}}'
-                                    },
-                                    @endif
+                                @forelse ($monthlyCountPrevYear as $click)
+                                {
+                                    x: '{{$click->month_label . ' ' . $click->year}}',
+                                    y: '{{$click->total}}'
+                                },
                                 @empty
 
                                 @endforelse
