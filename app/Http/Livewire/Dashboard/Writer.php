@@ -60,10 +60,12 @@ class Writer extends Component
     {
         return DB::table('article_reads')
                 ->where('user_id', auth()->user()->id)
-                ->select(DB::raw("COUNT(*) as total, DATE_FORMAT(created_at, '%m') as month, DATE_FORMAT(created_at, '%M') as month_label"))
+                ->select(DB::raw("COUNT(*) as total, DATE_FORMAT(created_at, '%m') as month, DATE_FORMAT(created_at, '%Y') as year, DATE_FORMAT(created_at, '%b') as month_label"))
                 ->groupBy('month')
+                ->groupBy('year')
                 ->groupBy('month_label')
                 ->orderBy('month', 'asc')
+                ->take(24)
                 ->get()
                 ->toArray();
     }
@@ -86,7 +88,8 @@ class Writer extends Component
                 ->select('region', DB::raw('COUNT(*) as total'))
                 ->groupBy('region')
                 ->orderBy('total', 'DESC')
-                ->get(10);
+                ->take(10)
+                ->get();
     }
 
     public function render()

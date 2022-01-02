@@ -69,7 +69,7 @@ class ArticleController extends Controller
         // Delete Article Forever
         $article->forceDelete();
 
-        request()->session()->flash('flash.banner', 'Article successfully restored');
+        request()->session()->flash('flash.banner', 'Article was completely deleted!');
         request()->session()->flash('flash.bannerStyle', 'success');
         return redirect()->route('articles');
     }

@@ -32,42 +32,19 @@
             </div>
         </div>
 
-        @if (count($monthlyCount) > 0)
-            <div class="mt-4 p-4 bg-white rounded-lg shadow-sm">
-                <div class="text-gray-500 text-xs">{{__("Overall Monthly Reads")}}</div>
-                <div id="chart"></div>
-            </div>
-            <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-            <script>
-                var options = {
-                        chart: {
-                            type: 'area',
-                            height: 350
-                        },
-                        series: [{
-                            name: 'Overall Monthly Reads',
-                            data: [
-                                @forelse ($monthlyCount as $click)
-                                    {
-                                        x: '{{$click->month_label}}',
-                                        y: '{{$click->total}}'
-                                    },
-                                @empty
+        <div class="mt-4">
+            <div class="grid grid-cols-12 gap-4">
+                @forelse ($monthlyCount as $read)
+                    @if ($read->year.'-'.$read->month == Carbon\Carbon::now()->format('Y-m'))
+                        <div class="col-span-1 bg-green-100 text-green-800 rounded-lg shadow-sm border px-3 py-1"><span class="block">{{$read->total}}</span><span class="text-xs text-green-800">{{$read->month_label . ' ' . $read->year}}</span></div>
+                    @else
+                        <div class="col-span-1 bg-white rounded-lg shadow-sm border px-3 py-1"><span class="block">{{$read->total}}</span><span class="text-xs text-gray-500">{{$read->month_label . ' ' . $read->year}}</span></div>
+                    @endif
+                @empty
 
-                                @endforelse
-                            ],
-                        }],
-                        xaxis: {
-                            type: 'category'
-                        },
-                        theme: {
-                            palette: 'palette1' // upto palette10
-                        }
-                    }
-                    var chart = new ApexCharts(document.querySelector("#chart"), options);
-                    chart.render();
-            </script>
-        @endif
+                @endforelse
+            </div>
+        </div>
 
         <div class="grid grid-cols-2 gap-2 mt-4">
             <div class="col-span-2 sm:col-span-1 p-4 bg-white rounded-lg shadow-sm">

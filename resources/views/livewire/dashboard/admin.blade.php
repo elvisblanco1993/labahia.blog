@@ -32,75 +32,19 @@
             </div>
         </div>
 
-        {{-- <div class="mt-4">
+        <div class="mt-4">
             <div class="grid grid-cols-12 gap-4">
-                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
-                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
-                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
-                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
-                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
-                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
-                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
-                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
-                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
-                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
-                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
-                <div class="col-span-1 bg-white rounded-lg shadow-sm p-4"><span class="block">100000</span><span class="text-xs text-gray-500">month</span></div>
+                @forelse ($monthlyCount as $read)
+                    @if ($read->year.'-'.$read->month == Carbon\Carbon::now()->format('Y-m'))
+                        <div class="col-span-1 bg-green-100 text-green-800 rounded-lg shadow-sm border px-3 py-1"><span class="block">{{$read->total}}</span><span class="text-xs text-green-800">{{$read->month_label . ' ' . $read->year}}</span></div>
+                    @else
+                        <div class="col-span-1 bg-white rounded-lg shadow-sm border px-3 py-1"><span class="block">{{$read->total}}</span><span class="text-xs text-gray-500">{{$read->month_label . ' ' . $read->year}}</span></div>
+                    @endif
+                @empty
 
+                @endforelse
             </div>
-        </div> --}}
-
-        @if (count($monthlyCount) > 0)
-            <div class="mt-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-                <div class="text-gray-500 dark:text-gray-300 text-xs">{{__("Overall Monthly Reads")}}</div>
-                <div id="chart" class="dark:text-white"></div>
-            </div>
-            <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-            <script>
-                var options = {
-                        chart: {
-                            type: 'area',
-                            height: 350
-                        },
-                        series: [{
-                            name: '{{Carbon\Carbon::now()->format('Y')}}',
-                            data: [
-                                @forelse ($monthlyCount as $click)
-                                {
-                                    x: '{{$click->month_label . ' ' . $click->year}}',
-                                    y: '{{$click->total}}'
-                                },
-                                @empty
-
-                                @endforelse
-                            ],
-                        },
-
-                        {
-                            name: '{{Carbon\Carbon::now()->subYear()->format('Y')}}',
-                            data: [
-                                @forelse ($monthlyCountPrevYear as $click)
-                                {
-                                    x: '{{$click->month_label . ' ' . $click->year}}',
-                                    y: '{{$click->total}}'
-                                },
-                                @empty
-
-                                @endforelse
-                            ],
-                        },
-                    ],
-                    xaxis: {
-                        type: 'category'
-                    },
-                    theme: {
-                        palette: 'palette1' // upto palette10
-                    }
-                }
-                var chart = new ApexCharts(document.querySelector("#chart"), options);
-                chart.render();
-            </script>
-        @endif
+        </div>
 
         <div class="grid grid-cols-2 gap-4 mt-4">
             <div class="col-span-2 sm:col-span-1 p-4 bg-white rounded-lg border shadow-sm">
