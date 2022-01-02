@@ -36,9 +36,9 @@
             <div class="grid grid-cols-12 gap-4">
                 @forelse ($monthlyCount as $read)
                     @if ($read->year.'-'.$read->month == Carbon\Carbon::now()->format('Y-m'))
-                        <div class="col-span-1 bg-green-100 text-green-800 rounded-lg shadow-sm border px-3 py-1"><span class="block">{{$read->total}}</span><span class="text-xs text-green-800">{{$read->month_label . ' ' . $read->year}}</span></div>
+                        <div class="col-span-2 sm:col-span-1 bg-green-100 text-green-800 rounded-lg shadow-sm border px-3 py-1"><span class="block">{{$read->total}}</span><span class="text-xs text-green-800">{{$read->month_label . ' ' . $read->year}}</span></div>
                     @else
-                        <div class="col-span-1 bg-white rounded-lg shadow-sm border px-3 py-1"><span class="block">{{$read->total}}</span><span class="text-xs text-gray-500">{{$read->month_label . ' ' . $read->year}}</span></div>
+                        <div class="col-span-2 sm:col-span-1 bg-white rounded-lg shadow-sm border px-3 py-1"><span class="block">{{$read->total}}</span><span class="text-xs text-gray-500">{{$read->month_label . ' ' . $read->year}}</span></div>
                     @endif
                 @empty
 
