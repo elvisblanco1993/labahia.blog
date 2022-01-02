@@ -64,6 +64,7 @@ class Writer extends Component
                 ->groupBy('month')
                 ->groupBy('year')
                 ->groupBy('month_label')
+                ->orderBy('year', 'asc')
                 ->orderBy('month', 'asc')
                 ->take(24)
                 ->get()
