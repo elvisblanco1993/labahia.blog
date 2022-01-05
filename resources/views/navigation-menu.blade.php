@@ -18,6 +18,9 @@
                     <x-jet-nav-link href="{{ route('articles') }}" :active="request()->routeIs('articles')">
                         {{ __('Articles') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('gallery') }}" :active="request()->routeIs('gallery')">
+                        {{ __('Gallery') }}
+                    </x-jet-nav-link>
                     @if (Auth::user()->isAdmin())
                         <x-jet-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
                             {{ __('Users') }}
@@ -102,6 +105,9 @@
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('articles') }}" :active="request()->routeIs('articles')">
                 {{ __('Articles') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('gallery') }}" :active="request()->routeIs('gallery')">
+                {{ __('Gallery') }}
             </x-jet-responsive-nav-link>
             @if (Auth::user()->isAdmin())
                 <x-jet-responsive-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">

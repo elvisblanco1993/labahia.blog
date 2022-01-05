@@ -32,6 +32,9 @@ Route::post('/tips/submit', [TipController::class, 'store'])->name('tips.store')
 Route::prefix('admin')->middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/dashboard', function() { return view('dashboard'); })->name('dashboard');
 
+    /**
+     * Articles protected routes
+     */
     Route::get('/articles', App\Http\Livewire\Articles\Index::class)->name('articles');
     Route::get('/articles/create', App\Http\Livewire\Articles\Create::class)->name('articles.create');
     Route::get('/articles/{article}/edit', App\Http\Livewire\Articles\Edit::class)->name('articles.edit');
@@ -40,5 +43,13 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified'])->group(function
     Route::get('/articles/{article}/delete', [ArticleController::class, 'delete'])->name('articles.delete');
     Route::get('/articles/{article}/delete-forever', [ArticleController::class, 'deleteForever'])->name('articles.delete-forever');
 
+    /**
+     * Gallery protected routes
+     */
+    Route::get('/gallery', App\Http\Livewire\Gallery\Index::class)->name('gallery');
+
+    /**
+     * User management protected routes
+     */
     Route::get('/users', App\Http\Livewire\Users\Index::class)->name('users');
 });

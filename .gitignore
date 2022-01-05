@@ -13,4 +13,4 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
-setup_nginx.sh
+.setup-nginx.sh

@@ -23,7 +23,7 @@
                     {{__("tags")}}
                         @if(count($article->tags) > 0) <span class="text-green-500">&checkmark;</span> @endif()
                 </button>
-                @livewire('banner', ['article_id' => $article->id])
+                @livewire('gallery.add-article-banner', ['article_id' => $article->id])
                 <button wire:click="setComments"
                     class="hidden sm:flex text-xs uppercase font-semibold tracking-widest text-gray-600 hover:text-indigo-600 transition-all">
                     @if ($article->comments == 0)
