@@ -46,10 +46,7 @@
                                                 </div>
                                                 <div class="ml-4">
                                                     <div class="text-sm font-medium text-gray-900">
-                                                        {{ $article->title }}
-                                                    </div>
-                                                    <div class="text-sm text-gray-500 underline">
-                                                        <a target="_blank" href="{{ route('articles.view', ['article' => $article->slug]) }}">{{ $article->slug }}</a>
+                                                        <a target="_blank" href="{{ route('articles.view', ['article' => $article->slug]) }}">{{ $article->title }}</a>
                                                     </div>
                                                 </div>
                                             </div>
