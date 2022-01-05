@@ -10,8 +10,8 @@
         <div class="mt-6">
             <div class="grid grid-cols-6 gap-8">
                 @forelse ($images as $image)
-                    <div class="col-span-1 h-auto p-2 border rounded-lg">
-                        <img src="{{ asset('images/'.$image->filename) }}" alt="" class="w-full aspect-auto rounded-md shadow object-cover">
+                    <div class="col-span-1 h-auto p-2 border rounded-lg bg-white shadow-sm">
+                        <img src="{{ asset('images/'.$image->filename) }}" alt="" class="w-full aspect-auto rounded-md shadow-inner object-cover">
                         <div class="mt-2">
                             <span class="flex items-center justify-between">
                                 <div>
