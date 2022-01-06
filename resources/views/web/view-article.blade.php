@@ -3,9 +3,6 @@
 {{-- Menu --}}
 @include('layouts.navbar')
 
-{{-- <div id="fb-root"></div> --}}
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v12.0" nonce="op9yg6sp"></script>
-
 {{-- Content --}}
 <div class="max-w-3xl mx-auto my-12 px-4 sm:px-6 lg:px-8 article">
     <div class="text-center">
@@ -37,17 +34,6 @@
         </div>
     </div>
 
-    {{-- <div class="block mt-6">
-        <div    class="fb-share-button"
-                data-href="{{url()->current()}}"
-                data-layout="button"
-                data-size="large">
-            <a
-                target="_blank"
-                href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}"
-                class="fb-xfbml-parse-ignore">Share</a>
-        </div>
-    </div> --}}
 </div>
 @if ($article->comments)
     @include('layouts.disqus')
