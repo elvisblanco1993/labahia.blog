@@ -12,7 +12,7 @@ class ArticleController extends Controller
     public function public()
     {
         return view('web.articles', [
-            'articles' => Article::with('user')->whereNotNull('published_at')->orderBy('created_at', 'asc')->paginate(13)
+            'articles' => Article::with('user')->whereNotNull('published_at')->orderBy('created_at', 'desc')->paginate(13)
         ]);
     }
 
