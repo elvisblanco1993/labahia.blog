@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class="block mt-6">
+    {{-- <div class="block mt-6">
         <div    class="fb-share-button"
                 data-href="{{url()->current()}}"
                 data-layout="button"
@@ -47,7 +47,7 @@
                 href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}"
                 class="fb-xfbml-parse-ignore">Share</a>
         </div>
-    </div>
+    </div> --}}
 </div>
 @if ($article->comments)
     @include('layouts.disqus')
