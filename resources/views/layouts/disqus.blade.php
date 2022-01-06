@@ -6,7 +6,7 @@
     **/
 
     var disqus_config = function () {
-        this.page.url = "{{ config('app.url') }}";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.url = "{{ url()->current() }}";  // Replace PAGE_URL with your page's canonical URL variable
         this.page.identifier = "{{ $article->uuid }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         this.language = "es_ES";
     };
