@@ -33,6 +33,9 @@
                     @endif
                 </button>
             </div>
+            <button  wire:click="$toggle('preview')">
+                {{__("Preview")}}
+            </button>
             <button class="primary-button" wire:click="update">
                 {{__("Save")}}
             </button>
@@ -85,12 +88,18 @@
         </x-slot>
     </x-jet-dialog-modal>
 
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
-        <div class="flex items-center justify-between mb-4 pb-4">
-            <div class="w-full">
-                <input type="text" class="w-full border-none shadow-none text-2xl text-black font-bold @error('title') placeholder-red-600 @enderror" wire:model.defer="title" placeholder="{{__("Title")}}">
+    <div class="max-w-3xl mx-auto px-4 sm:px-0 mt-4">
+        @if ($preview == TRUE)
+            <div class="prose prose-lg prose-blue">
+                {!! Str::of($article->body)->markdown() !!}
             </div>
-        </div>
-        <textarea wire:model="body" id="editor" class="w-full border-none text-md text-gray-800  @error('title') placeholder-red-600 @enderror" placeholder="{{__("Write")}}..." autofocus="true" rows='28'></textarea>
+        @else
+            <div class="flex items-center justify-between mb-4 pb-4">
+                <div class="w-full">
+                    <input type="text" class="w-full border-none shadow-none text-2xl text-black font-bold @error('title') placeholder-red-600 @enderror" wire:model.defer="title" placeholder="{{__("Title")}}" autofocus>
+                </div>
+            </div>
+            <textarea wire:model="body" id="editor" class="w-full border-none text-md text-black  @error('title') placeholder-red-600 @enderror" placeholder="{{__("Write")}}..." rows='26'></textarea>
+        @endif
     </div>
 </div>

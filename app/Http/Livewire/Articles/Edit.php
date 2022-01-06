@@ -17,7 +17,7 @@ class Edit extends Component
     public $selectedTags = [];
     public $activeTags;
     public $availableTags;
-
+    public $preview = false;
 
     public function mount()
     {
