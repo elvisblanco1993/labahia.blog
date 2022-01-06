@@ -34,9 +34,14 @@
         </div>
     </div>
 
+    @if ($article->comments)
+        <div class="my-12 block w-full border rounded-md p-4">
+            @livewire('comments.create', ['article_id' => $article->id])
+        </div>
+        <div class="my-12 block w-full border rounded-md p-4">
+            @livewire('comments.index', ['article_id'=>$article->id])
+        </div>
+    @endif
 </div>
-@if ($article->comments)
-    @include('layouts.disqus')
-@endif
 @endsection
 
