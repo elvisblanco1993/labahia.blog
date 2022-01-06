@@ -11,5 +11,6 @@
             <div class="border-t border-gray-300"></div>
         @endif
     @empty
+        <p class="w-full text-center">{{__("Be the first to comment.")}}</p>
     @endforelse
 </div>
