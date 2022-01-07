@@ -82,4 +82,9 @@ class Article extends Model
             ]);
         }
     }
+
+    public function comments()
+    {
+        return Comment::where('article_id', $this->id)->get()->toArray();
+    }
 }

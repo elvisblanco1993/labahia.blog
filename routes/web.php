@@ -49,6 +49,11 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified'])->group(function
     Route::get('/gallery', App\Http\Livewire\Gallery\Index::class)->name('gallery');
 
     /**
+     * Comments management routes
+     */
+    Route::get('/comments', App\Http\Livewire\Comments\Manage::class)->name('comments');
+
+    /**
      * User management protected routes
      */
     Route::get('/users', App\Http\Livewire\Users\Index::class)->name('users');

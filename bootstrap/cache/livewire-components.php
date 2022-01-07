@@ -5,6 +5,7 @@
   'comments.create' => 'App\\Http\\Livewire\\Comments\\Create',
   'comments.delete' => 'App\\Http\\Livewire\\Comments\\Delete',
   'comments.index' => 'App\\Http\\Livewire\\Comments\\Index',
+  'comments.manage' => 'App\\Http\\Livewire\\Comments\\Manage',
   'dashboard.admin' => 'App\\Http\\Livewire\\Dashboard\\Admin',
   'dashboard.writer' => 'App\\Http\\Livewire\\Dashboard\\Writer',
   'gallery.add-article-banner' => 'App\\Http\\Livewire\\Gallery\\AddArticleBanner',
