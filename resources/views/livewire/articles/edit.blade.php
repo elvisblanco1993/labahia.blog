@@ -1,14 +1,14 @@
 <div>
-    <div class="px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between bg-white border-b">
+    <div class="px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between bg-white dark:bg-gray-900 border-b dark:border-gray-800">
         <div class="">
             <a href="{{ route('articles') }}">
-                <div class="group flex items-center text-sm transform text-gray-600 hover:text-red-600 transition-all">
+                <div class="group flex items-center text-sm transform hover:text-red-600 transition-all dark:text-white">
                     <span class="group-hover:-translate-x-1 transition-all">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
                         </svg>
                     </span>
-                    <span class="text-xs uppercase font-semibold text-gray-600 tracking-widest group-hover:text-red-600">{{__("Back")}}</span>
+                    <span class="text-xs uppercase group-hover:text-red-600">{{__("Back")}}</span>
                 </div>
             </a>
         </div>

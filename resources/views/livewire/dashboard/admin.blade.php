@@ -36,7 +36,7 @@
             <div class="grid grid-cols-12 gap-4">
                 @forelse ($monthlyCount as $read)
                     @if ($read->year.'-'.$read->month == Carbon\Carbon::now()->format('Y-m'))
-                        <div class="col-span-3 sm:col-span-1 bg-green-100 text-green-800 rounded-lg shadow-sm border px-3 py-1"><span class="block">{{$read->total}}</span><span class="text-xs text-green-800">{{$read->month_label . ' ' . $read->year}}</span></div>
+                        <div class="col-span-3 md:col-span-1 bg-green-100 text-green-800 rounded-lg shadow-sm border px-3 py-1"><span class="block">{{$read->total}}</span><span class="text-xs text-green-800">{{$read->month_label . ' ' . $read->year}}</span></div>
                     @else
                         <div class="col-span-3 sm:col-span-1 bg-white rounded-lg shadow-sm border px-3 py-1"><span class="block">{{$read->total}}</span><span class="text-xs text-gray-500">{{$read->month_label . ' ' . $read->year}}</span></div>
                     @endif
@@ -47,26 +47,32 @@
         </div>
 
         <div class="grid grid-cols-2 gap-4 mt-4">
-            <div class="col-span-2 sm:col-span-1 p-4 bg-white rounded-lg border shadow-sm">
-                <div class="text-gray-500 text-xs">{{__("Most Popular Articles")}}</div>
+            <div class="col-span-2 sm:col-span-1 p-4 bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-600 shadow-sm">
+                <div class="text-gray-500 dark:text-gray-300 text-xs">{{__("Most Popular Articles")}}</div>
                 <ul>
                     @forelse ($mostPopularArticles as $article)
-                        <li class="flex items-center justify-between py-2 border-b">
-                            <div class="text-sm font-semibold text-gray-700">{{$article->title}}</div>
-                            <div class="text-gray-800 text-xs">{{$article->total . ' ' . __("times read")}}</div>
+                        @if (!$loop->first)
+                            <div class="border-t border-gray-600 dark:border-gray-600"></div>
+                        @endif
+                        <li class="flex items-center justify-between py-2">
+                            <div class="text-sm font-semibold text-gray-700 dark:text-gray-200">{{$article->title}}</div>
+                            <div class="text-gray-800 text-xs dark:text-gray-200">{{$article->total . ' ' . __("times read")}}</div>
                         </li>
                     @empty
                     @endforelse
                 </ul>
             </div>
 
-            <div class="col-span-2 sm:col-span-1 p-4 bg-white rounded-lg border shadow-sm">
-                <div class="text-gray-500 text-xs">{{__("Most Reads By Region")}}</div>
+            <div class="col-span-2 sm:col-span-1 p-4 bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-600 shadow-sm">
+                <div class="text-gray-500 dark:text-gray-300 text-xs">{{__("Most Reads By Region")}}</div>
                 <ul>
                     @forelse ($mostReadsByRegion as $region)
-                        <li class="flex items-center justify-between py-2 border-b">
-                            <div class="text-sm font-semibold text-gray-700">{{$region->region ?? __('Unspecified')}}</div>
-                            <div class="text-gray-800 text-xs">{{$region->total . ' ' . __("visits")}}</div>
+                        @if (!$loop->first)
+                            <div class="border-t border-gray-600 dark:border-gray-600"></div>
+                        @endif
+                        <li class="flex items-center justify-between py-2">
+                            <div class="text-sm font-semibold text-gray-700 dark:text-gray-200">{{$region->region ?? __('Unspecified')}}</div>
+                            <div class="text-gray-800 text-xs dark:text-gray-200">{{$region->total . ' ' . __("visits")}}</div>
                         </li>
                     @empty
 

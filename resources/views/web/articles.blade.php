@@ -14,8 +14,8 @@
                                 <div class="col-span-2 h-full w-full">
                                     <img src="{{asset('images/'.$article->image)}}" alt="{{$article->title}}" class="w-full h-96 object-cover object-center">
                                 </div>
-                                <div class="col-span-2 w-full h-full flex flex-col items-center justify-center bg-black text-white text-center p-6">
-                                    <h1 class="text-2xl md:text-4xl font-semibold dark:text-gray-400 transition-all">{{$article->title}}</h1>
+                                <div class="col-span-2 w-full h-full flex flex-col items-center justify-center bg-black dark:bg-gray-800 text-white text-center p-6">
+                                    <h1 class="text-2xl md:text-4xl font-semibold dark:text-white transition-all">{{$article->title}}</h1>
                                     <div class="flex items-center gap-4 mt-4">
                                         <a href="{{route('author.filter', ['user' => $article->user->id])}}" class="text-sm transition-all">
                                             {{ __("By:") . ' ' . $article->user->name }}
@@ -37,7 +37,7 @@
 
                         <a href="{{ route('articles.view', ['article' => $article->slug]) }}" class="sm:hidden col-span-6 sm:col-span-2 group">
                             <div class="h-56 w-full block bg-center bg-cover" style="background-image: url('{{asset('images/'.$article->image)}}')"></div>
-                            <div class="w-full mt-4 flex items-center justify-between dark:text-gray-500">
+                            <div class="w-full mt-4 flex items-center justify-between dark:text-gray-300">
                                 <div class="text-sm group-hover:text-indigo-500 transition-all">
                                     {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->published_at)->formatLocalized('%d de %B %Y') }}
                                 </div>
@@ -45,14 +45,14 @@
                                     {{ __("By: ") . $article->user->name }}
                                 </div>
                             </div>
-                            <div class="mt-3 font-semibold text-gray-800 dark:text-gray-400 group-hover:text-indigo-500 transition-all">{{$article->title}}</div>
+                            <div class="mt-3 font-semibold text-gray-800 dark:text-white group-hover:text-indigo-500 transition-all">{{$article->title}}</div>
                         </a>
 
                         @else
 
                         <a href="{{ route('articles.view', ['article' => $article->slug]) }}" class="col-span-6 sm:col-span-2 group">
                             <div class="h-56 w-full block bg-center bg-cover" style="background-image: url('{{asset('images/'.$article->image)}}')"></div>
-                            <div class="w-full mt-4 flex items-center justify-between dark:text-gray-500">
+                            <div class="w-full mt-4 flex items-center justify-between dark:text-gray-300">
                                 <div class="text-sm group-hover:text-indigo-500 transition-all">
                                     {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->published_at)->formatLocalized('%d de %B %Y') }}
                                 </div>
@@ -60,14 +60,14 @@
                                     {{ __("By: ") . $article->user->name }}
                                 </div>
                             </div>
-                            <div class="mt-3 font-semibold text-gray-800 dark:text-gray-400 group-hover:text-indigo-500 transition-all">{{$article->title}}</div>
+                            <div class="mt-3 font-semibold text-gray-800 dark:text-white group-hover:text-indigo-500 transition-all">{{$article->title}}</div>
                         </a>
                     @endif
                 @empty
 
                 @endforelse
 
-                <div class="col-span-6">
+                <div class="col-span-6" id="pagination-links">
                     {{$articles->links()}}
                 </div>
             </div>

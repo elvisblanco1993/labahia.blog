@@ -1,8 +1,8 @@
 <div>
-    <div class="px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between bg-white border-b">
+    <div class="px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between bg-white dark:bg-gray-900 border-b dark:border-gray-800">
         <div class="">
             <a href="{{ route('articles') }}">
-                <div class="group flex items-center text-sm transform hover:text-red-600 transition-all">
+                <div class="group flex items-center text-sm transform hover:text-red-600 transition-all dark:text-white">
                     <span class="group-hover:-translate-x-1 transition-all">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
@@ -16,7 +16,7 @@
             <div class="text-sm text-right text-gray-400">
                 {{$wordCount . ' ' . __("words")}}
             </div>
-            <span class="text-sm text-gray-600 tracking-wide">{{__("Please save your work to add banners and tags.")}}</span>
+            <span class="text-sm text-gray-600 dark:text-gray-400 tracking-wide">{{__("Please save your work to add banners and tags.")}}</span>
             <button class="primary-button" wire:click="create">
                 {{__("Save")}}
             </button>

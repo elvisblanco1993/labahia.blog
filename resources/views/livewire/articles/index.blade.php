@@ -1,5 +1,5 @@
 <div>
-    <div class="max-w-7xl mx-auto my-6 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto mt-6 px-4 sm:px-6 lg:px-8">
 
         <div class="flex items-center justify-between">
             <div class="w-2/3 sm:w-1/3">
@@ -16,19 +16,19 @@
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-50">
+                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+                            <thead class="bg-gray-50 dark:bg-gray-800">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider">
                                         {{__("Title")}}
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider">
                                         {{__("Last updated")}}
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider">
                                         {{__("Status")}}
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider">
                                         {{__("Written by")}}
                                     </th>
                                     <th scope="col" class="relative px-6 py-3">
@@ -36,7 +36,7 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
+                            <tbody class="bg-white dark:bg-gray-700 divide-y divide-gray-200 dark:divide-gray-600">
                                 @forelse ($articles as $article)
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
@@ -45,14 +45,14 @@
                                                     <img class="h-10 w-10 rounded object-cover" src="{{asset('images/'.$article->image)}}">
                                                 </div>
                                                 <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900">
+                                                    <div class="text-sm font-medium text-gray-900 dark:text-gray-100">
                                                         <a target="_blank" href="{{ route('articles.view', ['article' => $article->slug]) }}">{{ $article->title }}</a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">
+                                            <div class="text-xs text-gray-900 dark:text-gray-100">
                                                 {{ date('d-m-Y H:i:s', strtotime($article->updated_at)) }}
                                             </div>
                                         </td>
@@ -67,19 +67,19 @@
                                                 </span>
                                             @endif
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-100">
                                             {{$article->user->name}}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-4">
                                             <div class="flex items-center justify-end gap-4">
-                                                <a href="{{route('articles.publish', ['article'=>$article->id])}}" class="text-indigo-600 hover:text-indigo-900">
+                                                <a href="{{route('articles.publish', ['article'=>$article->id])}}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-900 dark:hover:text-indigo-500">
                                                     @if (isset($article->published_at))
                                                     {{__("Unpublish")}}
                                                     @else
                                                     {{__("Publish")}}
                                                     @endif
                                                 </a>
-                                                <a href="{{route('articles.edit', ['article' => $article->id])}}" class="text-indigo-600 hover:text-indigo-900">
+                                                <a href="{{route('articles.edit', ['article' => $article->id])}}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-900 dark:hover:text-indigo-500">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                                         <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
                                                         <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />

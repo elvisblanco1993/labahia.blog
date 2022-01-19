@@ -20,7 +20,7 @@ class ArticleController extends Controller
     {
         $article = Article::where('slug', $article)->whereNotNull('published_at')->first();
         $article->getArticleReads($article->id, $article->user->id, request()->getClientIp());
-        $estimated_read_time = floor(str_word_count(strip_tags($article->body)) / 200);
+        $estimated_read_time = ( floor(str_word_count(strip_tags($article->body)) /200 ) > 0) ? floor(str_word_count(strip_tags($article->body)) / 200) : "about 1";
 
         return view('web.view-article', [
             'article' => $article,
