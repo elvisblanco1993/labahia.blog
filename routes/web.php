@@ -57,4 +57,9 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified'])->group(function
      * User management protected routes
      */
     Route::get('/users', App\Http\Livewire\Users\Index::class)->name('users');
+
+    /**
+     * Tips management routes
+     */
+    Route::get('/tips', App\Http\Livewire\Tips\Index::class)->name('tips');
 });
