@@ -24,6 +24,9 @@
                     <x-jet-nav-link href="{{ route('comments') }}" :active="request()->routeIs('comments')">
                         {{ __('Comments') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('tips') }}" :active="request()->routeIs('tips')">
+                        {{ __('Tips & Messages') }}
+                    </x-jet-nav-link>
                     @if (Auth::user()->isAdmin())
                         <x-jet-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
                             {{ __('Users') }}
@@ -114,6 +117,9 @@
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('comments') }}" :active="request()->routeIs('comments')">
                 {{ __('Comments') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('tips') }}" :active="request()->routeIs('tips')">
+                {{ __('Tips & Messages') }}
             </x-jet-responsive-nav-link>
             @if (Auth::user()->isAdmin())
                 <x-jet-responsive-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
